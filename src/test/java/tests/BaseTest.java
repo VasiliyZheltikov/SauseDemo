@@ -15,6 +15,9 @@ import java.util.HashMap;
 
 public class BaseTest {
 
+    final String LOGIN_STANDARD_USER = "standard_user";
+    final String CORRECT_PASSWORD = "secret_sauce";
+
     WebDriver driver;
     SoftAssert softAssert;
     LoginPage loginPage;
