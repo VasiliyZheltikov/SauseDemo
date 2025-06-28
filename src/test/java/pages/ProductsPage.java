@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class ProductsPage extends BasePage {
 
@@ -48,14 +46,14 @@ public class ProductsPage extends BasePage {
         return driver.findElement(TITLE).isDisplayed();
     }
 
-    public Collection<String> getItemsPrices() {
+    public String getItemsPrices() {
         Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
-        Collection<String> prices = new ArrayList<>();
+        TreeSet<Double> prices = new TreeSet<>();
         for (WebElement price : pricesList) {
-            String value = price.getText();
-            prices.add(value);
+            String value = price.getText().substring(1);
+            prices.add(Double.valueOf(value));
         }
-        return prices;
+        return prices.toString();
     }
 
     public void sortItemsByPriceFromLowToHigh() {
@@ -63,8 +61,14 @@ public class ProductsPage extends BasePage {
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
     }
 
-    public Stream<String> getSortedItemsPricesLowToHigh() {
-        Collection<String> prices = getItemsPrices();
-        return prices.stream().sorted();
+    public String getSortedItemsPricesLowToHigh() {
+        Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
+        TreeSet<Double> sortedPrices = new TreeSet<>();
+        for (WebElement price : pricesList) {
+            String value = price.getText().substring(1);
+            sortedPrices.add(Double.valueOf(value));
+        }
+        return sortedPrices.toString();
+
     }
 }
