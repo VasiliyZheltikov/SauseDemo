@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Stream;
 
 public class ProductsPage extends BasePage {
 
@@ -62,8 +63,8 @@ public class ProductsPage extends BasePage {
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
     }
 
-    public String getSortedItemsPricesLowToHigh() {
+    public Stream<String> getSortedItemsPricesLowToHigh() {
         Collection<String> prices = getItemsPrices();
-        return prices.stream().sorted().toString();
+        return prices.stream().sorted();
     }
 }
