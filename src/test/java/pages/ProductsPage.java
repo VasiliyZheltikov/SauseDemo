@@ -13,20 +13,23 @@ public class ProductsPage extends BasePage {
     private final By ITEMS_PRICES = By.className("inventory_item_price");
     private final By SORTER = By.className("product_sort_container");
     private final By SORTER_VALUE_PRICE_LOW_TO_HIGH = By.xpath("//option[@value='lohi']");
+    private final By ITEM_NAME_IN_ITEM_CARD = By.cssSelector(".inventory_details_name.large_size");
 
     private By itemAddingToCartIcon = By.id("add-to-cart-sauce-labs-bike-light");
     private By itemName = By.xpath("(//div[@class='inventory_item_name '])[2]");
     private By itemPrice = By.xpath("(//div[@class='inventory_item_price'])[2]");
+    private By itemImage = By.xpath("(//div[@class='inventory_item_img'])[2]");
+    private By itemImageInItemCard = By.xpath("//img[@alt='Sauce Labs Bike Light']");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
     public void open() {
-        driver.get(BASE_URL + "/inventory.html");
+        driver.get(BASE_URL + "inventory.html");
     }
 
-    public String getItemName() {
+    public String getItemNameOnProductsPage() {
         return driver.findElement(itemName).getText();
     }
 
@@ -69,6 +72,21 @@ public class ProductsPage extends BasePage {
             sortedPrices.add(Double.valueOf(value));
         }
         return sortedPrices.stream().sorted().toList();
+    }
 
+    public void openItemCardByName() {
+        driver.findElement(itemName).click();
+    }
+
+    public void openItemCardByImage() {
+        driver.findElement(itemImage).click();
+    }
+
+    public String getItemNameInItemCard() {
+        return driver.findElement(ITEM_NAME_IN_ITEM_CARD).getText();
+    }
+
+    public boolean getItemImageInItemCard() {
+        return driver.findElement(itemImageInItemCard).isDisplayed();
     }
 }

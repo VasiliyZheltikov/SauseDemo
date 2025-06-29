@@ -9,7 +9,7 @@ public class ShoppingCartTest extends BaseTest {
         loginPage.open();
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);
         productsPage.addItemToCart();
-        String itemName = productsPage.getItemName();
+        String itemName = productsPage.getItemNameOnProductsPage();
         String itemPrice = productsPage.getItemPrice();
         productsPage.moveToCart();
         softAssert.assertEquals(itemName,
