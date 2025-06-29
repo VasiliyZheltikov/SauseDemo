@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CheckoutYourInformationPage extends BasePage{
+public class CheckoutYourInformationPage extends BasePage {
 
     private final By FIRST_NAME_FIELD = By.id("first-name");
     private final By LAST_NAME_FIELD = By.id("last-name");

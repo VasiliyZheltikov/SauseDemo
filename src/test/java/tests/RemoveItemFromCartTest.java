@@ -3,7 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RemoveItemFromCartTest extends BaseTest{
+public class RemoveItemFromCartTest extends BaseTest {
 
     @Test
     public void removeItemFromCartTest() {

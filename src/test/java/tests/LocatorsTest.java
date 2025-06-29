@@ -3,7 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class LocatorsTest extends BaseTest{
+public class LocatorsTest extends BaseTest {
 
     @Test
     public void checkLocators() {
