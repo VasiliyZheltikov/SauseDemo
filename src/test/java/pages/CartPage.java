@@ -10,6 +10,7 @@ public class CartPage extends BasePage {
     private final By ITEM_NAME = By.className("inventory_item_name");
     private final By ITEM_PRICE = By.className("inventory_item_price");
     private final By REMOVE_BUTTON = By.cssSelector("[class~=cart_button]");
+    private final By CHECKOUT_BUTTON = By.id("checkout");
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -37,5 +38,9 @@ public class CartPage extends BasePage {
 
     public void removeItemFromCart() {
         driver.findElement(REMOVE_BUTTON).click();
+    }
+
+    public void checkout() {
+        driver.findElement(CHECKOUT_BUTTON).click();
     }
 }
