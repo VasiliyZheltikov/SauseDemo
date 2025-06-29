@@ -15,8 +15,11 @@ public class OpenItemCardTest extends BaseTest {
                 "Открыта карточка товара с другим названием");
         productsPage.open();
         productsPage.openItemCardByImage();
-        softAssert.assertTrue(productsPage.getItemImageInItemCard(),
+        softAssert.assertTrue(productsPage.getItemImageInItemCard().isDisplayed(),
                 "Ошибка отображения фотографии товара");
+        softAssert.assertEquals(productsPage.getItemImageInItemCard().getDomProperty("alt"),
+                productsPage.getItemNameInItemCard(),
+                "Открыта фотография другого товара");
         softAssert.assertAll();
     }
 }
