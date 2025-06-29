@@ -46,14 +46,14 @@ public class ProductsPage extends BasePage {
         return driver.findElement(TITLE).isDisplayed();
     }
 
-    public String getItemsPrices() {
+    public Collection<Double> getItemsPrices() {
         Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
-        TreeSet<Double> prices = new TreeSet<>();
+        Collection<Double> prices = new ArrayList<>();
         for (WebElement price : pricesList) {
             String value = price.getText().substring(1);
             prices.add(Double.valueOf(value));
         }
-        return prices.toString();
+        return prices;
     }
 
     public void sortItemsByPriceFromLowToHigh() {
@@ -61,14 +61,14 @@ public class ProductsPage extends BasePage {
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
     }
 
-    public String getSortedItemsPricesLowToHigh() {
+    public Collection<Double> getSortedItemsPricesLowToHigh() {
         Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
-        TreeSet<Double> sortedPrices = new TreeSet<>();
+        Collection<Double> sortedPrices = new ArrayList<>();
         for (WebElement price : pricesList) {
             String value = price.getText().substring(1);
             sortedPrices.add(Double.valueOf(value));
         }
-        return sortedPrices.toString();
+        return sortedPrices.stream().sorted().toList();
 
     }
 }
