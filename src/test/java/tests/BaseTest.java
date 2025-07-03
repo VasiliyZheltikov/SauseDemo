@@ -6,18 +6,24 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
 
 import java.time.Duration;
 import java.util.HashMap;
 
 public class BaseTest {
 
+    final String LOGIN_STANDARD_USER = "standard_user";
+    final String CORRECT_PASSWORD = "secret_sauce";
+
     WebDriver driver;
     SoftAssert softAssert;
     LoginPage loginPage;
     ProductsPage productsPage;
+    CartPage cartPage;
+    CheckoutYourInformationPage checkoutYourInformationPage;
+    CheckoutOverviewPage checkoutOverviewPage;
+    CheckoutCompletePage checkoutCompletePage;
 
     @BeforeMethod
     public void setup() {
@@ -36,6 +42,10 @@ public class BaseTest {
         softAssert = new SoftAssert();
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
+        checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
+        checkoutOverviewPage = new CheckoutOverviewPage(driver);
+        checkoutCompletePage = new CheckoutCompletePage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
