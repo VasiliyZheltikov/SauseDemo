@@ -21,6 +21,7 @@ public class LoginPage extends BasePage {
     public void login(String user, String password) {
         driver.findElement(LOGIN_FIELD).sendKeys(user); // заполнение Username
         driver.findElement(PASSWORD_FIELD).sendKeys(password); // заполнение Password
+//        clickJS(driver.findElement(LOGIN_BUTTON));
         driver.findElement(LOGIN_BUTTON).click();
     }
 

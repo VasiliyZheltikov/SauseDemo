@@ -4,7 +4,9 @@ import org.testng.annotations.Test;
 
 public class ShoppingCartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка добавления товара в корзину",
+            testName = "Добавление товара в корзину",
+            groups = {"smoke"})
     public void checkItemNameAndPrice() {
         loginPage.open();
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);

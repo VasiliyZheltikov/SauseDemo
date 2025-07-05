@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 
 public class RemoveItemFromCartTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка удаления товара из корзины",
+            testName = "Удаление товара из корзины",
+            groups = {"regression"})
     public void removeItemFromCartTest() {
         loginPage.open();
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);

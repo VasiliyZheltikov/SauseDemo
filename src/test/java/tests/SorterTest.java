@@ -7,7 +7,9 @@ import java.util.Collection;
 
 public class SorterTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка сортировки товара по цене (по возрастанию)",
+            testName = "Сортировка товаров по возрастанию цены",
+            groups = {"regression"})
     public void sortPriceLowToHigh() {
         loginPage.open(); // открыт сайт
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD); // логин с переходом в Page Products

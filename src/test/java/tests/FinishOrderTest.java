@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 
 public class FinishOrderTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка успешного оформления заказа",
+            testName = "Завершение оформления заказа",
+            groups = {"smoke"})
     public void finishOrderTest() {
         loginPage.open();
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);
