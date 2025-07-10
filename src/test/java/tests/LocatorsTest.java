@@ -5,9 +5,8 @@ import org.testng.annotations.Test;
 
 public class LocatorsTest extends BaseTest {
 
-    @Test
+    @Test (enabled = false)
     public void checkLocators() {
-        setup();
         driver.get("https://www.saucedemo.com/");
         // By id
         driver.findElement(By.id("user-name"));

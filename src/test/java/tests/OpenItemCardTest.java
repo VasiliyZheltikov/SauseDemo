@@ -4,7 +4,9 @@ import org.testng.annotations.Test;
 
 public class OpenItemCardTest extends BaseTest {
 
-    @Test
+    @Test(description = "Проверка открытия карточки товара",
+            testName = "Открытие карточки товара",
+            groups = {"regression"})
     public void openItemCardTest() {
         loginPage.open();
         loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);
