@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -28,18 +29,22 @@ public class CartPage extends BasePage {
         }
     }
 
+    @Step("Нахождение цены товара в корзине")
     public String getItemPrice() {
         return driver.findElement(ITEM_PRICE).getText();
     }
 
+    @Step("Нахождение наименования товара в корзине")
     public String getItemName() {
         return driver.findElement(ITEM_NAME).getText();
     }
 
+    @Step("Удаление товара из корзины")
     public void removeItemFromCart() {
         driver.findElement(REMOVE_BUTTON).click();
     }
 
+    @Step("Нажатие кнопки Checkout в корзине")
     public void checkout() {
         driver.findElement(CHECKOUT_BUTTON).click();
     }

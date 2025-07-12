@@ -1,15 +1,33 @@
 package tests;
 
+import io.qameta.allure.*;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class ShoppingCartTest extends BaseTest {
 
+    @DataProvider(name = "LoginData")
+    public Object[][] loginData() {
+        return new Object[][] {
+                {"standard_user", "secret_sauce"}
+        };
+    }
+
     @Test(description = "Проверка добавления товара в корзину",
             testName = "Добавление товара в корзину",
-            groups = {"smoke"})
-    public void checkItemNameAndPrice() {
+            groups = {"smoke"},
+            dataProvider = "LoginData")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("Zheltikov Vasiliy")
+    @Link("https://www.saucedemo.com/")
+    @Epic("Cart Page")
+    @Feature("Add item to cart")
+    @Story("Adding item to cart")
+    @TmsLink("ITM-4")
+    @Description("Проверка добавления товара в корзину")
+    public void checkItemNameAndPrice(String username, String password) {
         loginPage.open();
-        loginPage.login(LOGIN_STANDARD_USER, CORRECT_PASSWORD);
+        loginPage.login(username, password);
         productsPage.addItemToCart();
         String itemName = productsPage.getItemNameOnProductsPage();
         String itemPrice = productsPage.getItemPrice();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,30 +26,37 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Открытие страницы с товарами")
     public void open() {
         driver.get(BASE_URL + "inventory.html");
     }
 
+    @Step("Нахождение наименования товара на странице товаров")
     public String getItemNameOnProductsPage() {
         return driver.findElement(itemName).getText();
     }
 
+    @Step("Нахождение цены товара на странице товара")
     public String getItemPrice() {
         return driver.findElement(itemPrice).getText();
     }
 
+    @Step("Добавление товара в корзину")
     public void addItemToCart() {
         driver.findElement(itemAddingToCartIcon).click();
     }
 
+    @Step("Переход в корзину")
     public void moveToCart() {
         driver.findElement(CART).click();
     }
 
+    @Step("Проверка открытия страницы с товарами")
     public boolean isPageOpened() {
         return driver.findElement(TITLE).isDisplayed();
     }
 
+    @Step("Нахождение всех цен товаров на странице с товарами")
     public Collection<Double> getItemsPrices() {
         Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
         Collection<Double> prices = new ArrayList<>();
@@ -59,11 +67,13 @@ public class ProductsPage extends BasePage {
         return prices;
     }
 
+    @Step("Выбор значения сортировщика цен - по возрастанию")
     public void sortItemsByPriceFromLowToHigh() {
         driver.findElement(SORTER).click();
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
     }
 
+    @Step("Сортировка найденных цен товаров по возрастанию")
     public Collection<Double> getSortedItemsPricesLowToHigh() {
         Collection<WebElement> pricesList = driver.findElements(ITEMS_PRICES);
         Collection<Double> sortedPrices = new ArrayList<>();
@@ -73,19 +83,22 @@ public class ProductsPage extends BasePage {
         }
         return sortedPrices.stream().sorted().toList();
     }
-
+    @Step("Открытие карточки товара кликом на название товара")
     public void openItemCardByName() {
         driver.findElement(itemName).click();
     }
 
+    @Step("Открытие карточки товара кликом на изображение товара")
     public void openItemCardByImage() {
         driver.findElement(itemImage).click();
     }
 
+    @Step("Нахождение названия товара в карточке товара")
     public String getItemNameInItemCard() {
         return driver.findElement(ITEM_NAME_IN_ITEM_CARD).getText();
     }
 
+    @Step("Определение открытого изображение в карточке товара")
     public WebElement getItemImageInItemCard() {
         return driver.findElement(ITEM_IMAGE_IN_ITEM_CARD);
     }
