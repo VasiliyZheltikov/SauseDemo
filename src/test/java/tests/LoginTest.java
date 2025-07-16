@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,10 +13,19 @@ public class LoginTest extends BaseTest {
             description = "Проверка успешной авторизации",
             testName = "Авторизация со стандартным логином и паролем",
             groups = {"smoke"})
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("Zheltikov Vasiliy")
+    @Link("https://www.saucedemo.com/")
+    @Epic("Login Page")
+    @Feature("Authorization")
+    @Story("Log in system")
+    @TmsLink("ITM-4")
+    @Description("Проверка успешной авторизации в системе")
     public void checkLogin() {
         loginPage.open();
-        loginPage.login("standard_user1", "secret_sauce");
-        assertTrue(productsPage.isPageOpened());
+        loginPage.login("standard_user", "secret_sauce");
+        assertTrue(productsPage.isPageOpened(),
+                "Ошибка авторизации");
     }
 
     @DataProvider(name = "LoginData")
@@ -33,6 +43,17 @@ public class LoginTest extends BaseTest {
             testName = "Негативные сценарии входа в систему",
             groups = {"regression"},
             dependsOnMethods = {"checkLogin"})
+    @Severity(SeverityLevel.NORMAL)
+    @Owner("Zheltikov Vasiliy")
+    @Link("https://www.saucedemo.com/")
+    @Epic("Login Page")
+    @Feature("Authorization")
+    @Story("Log in System")
+    @TmsLink("ITM-4")
+    @Issue("ITM-4-1-4")
+    @Issue("ITM-4-1-5")
+    @Issue("ITM-4-1-6")
+    @Description("Проверка открытия пользователем карточки товара")
     public void checkLoginWithNegativeValues(String user, String password, String expectedMessage) {
         loginPage.open();
         loginPage.login(user, password);

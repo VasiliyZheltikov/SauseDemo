@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pages.*;
@@ -11,11 +12,10 @@ import pages.*;
 import java.time.Duration;
 import java.util.HashMap;
 
+import static tests.AllureUtils.takeScreenshot;
+
 @Listeners(TestListener.class)
 public class BaseTest {
-
-    final String LOGIN_STANDARD_USER = "standard_user";
-    final String CORRECT_PASSWORD = "secret_sauce";
 
     WebDriver driver;
     SoftAssert softAssert;
@@ -27,7 +27,7 @@ public class BaseTest {
     CheckoutCompletePage checkoutCompletePage;
 
     @Parameters({"browser"})
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true, description = "Настройка драйвера")
     public void setup(@Optional("chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = getOptions();
@@ -59,8 +59,11 @@ public class BaseTest {
         return options;
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void close() {
+    @AfterMethod(alwaysRun = true, description = "Закрытие браузера")
+    public void close(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            takeScreenshot(driver);
+        }
         driver.quit();
     }
 }

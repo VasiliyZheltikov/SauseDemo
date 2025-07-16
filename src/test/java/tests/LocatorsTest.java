@@ -69,6 +69,5 @@ public class LocatorsTest extends BaseTest {
         driver.findElement(By.cssSelector("[class$=label]"));
         // By css: [attribute*=value]
         driver.findElement(By.cssSelector("[href*=sauce]"));
-        close();
     }
 }
