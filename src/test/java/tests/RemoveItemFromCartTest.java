@@ -28,11 +28,11 @@ public class RemoveItemFromCartTest extends BaseTest {
     @Issue("ITM-4-1-8")
     @Description("Проверка удаления товара из корзины")
     public void removeItemFromCartTest(String username, String password) {
-        loginPage.open();
-        loginPage.login(username, password);
-        productsPage.addItemToCart();
-        productsPage.moveToCart();
-        cartPage.removeItemFromCart();
+        loginPage.open()
+                 .login(username, password)
+                 .addItemToCart()
+                 .moveToCart()
+                 .removeItemFromCart();
         Assert.assertFalse(cartPage.ItemIsDisplaying(),
                 "Товар не удалён");
     }

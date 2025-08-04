@@ -27,15 +27,15 @@ public class OpenItemCardTest extends BaseTest {
     @Issue("ITM-4-1")
     @Description("Проверка открытия пользователем карточки товара")
     public void openItemCardTest(String username, String password) {
-        loginPage.open();
-        loginPage.login(username, password);
+        loginPage.open()
+                 .login(username, password);
         String productNameOnProductPage = productsPage.getItemNameOnProductsPage();
         productsPage.openItemCardByName();
         softAssert.assertEquals(productsPage.getItemNameInItemCard(),
                 productNameOnProductPage,
                 "Открыта карточка товара с другим названием");
-        productsPage.open();
-        productsPage.openItemCardByImage();
+        productsPage.open()
+                    .openItemCardByImage();
         softAssert.assertEquals(productsPage.getItemImageInItemCard().getDomProperty("alt"),
                 productsPage.getItemNameInItemCard(),
                 "Изображение товара не соответствует ожидаемому");

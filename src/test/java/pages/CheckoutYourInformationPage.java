@@ -16,18 +16,21 @@ public class CheckoutYourInformationPage extends BasePage {
     }
 
     @Step("Открытие страницы проверки заказа")
-    public void open() {
+    @Override
+    public CheckoutYourInformationPage open() {
         driver.get(BASE_URL + "checkout-step-one.html");
+        return this;
     }
 
     @Step("Авторизация на странице проверки заказа с параметрами: " +
             "First Name = {firstName}, " +
             "Last Name = {lastName}, " +
             "Postal Code = {postalCode}")
-    public void login(String firstName, String lastName, String postalCode) {
+    public CheckoutOverviewPage login(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);
         driver.findElement(LAST_NAME_FIELD).sendKeys(lastName);
         driver.findElement(POSTAL_CODE_FIELD).sendKeys(postalCode);
         driver.findElement(CONTINUE_BUTTON).click();
+        return new CheckoutOverviewPage(driver);
     }
 }

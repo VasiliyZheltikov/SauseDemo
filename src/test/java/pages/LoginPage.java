@@ -15,16 +15,20 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
+    @Step("Открытие сайта SauseDemo")
+    @Override
+    public LoginPage open() {
         driver.get(BASE_URL);
+        return this;
     }
 
     @Step("Вход в систему с именем пользователя {user} и паролем {password}")
-    public void login(String user, String password) {
+    public ProductsPage login(String user, String password) {
         driver.findElement(LOGIN_FIELD).sendKeys(user); // заполнение Username
         driver.findElement(PASSWORD_FIELD).sendKeys(password); // заполнение Password
 //        clickJS(driver.findElement(LOGIN_BUTTON));
         driver.findElement(LOGIN_BUTTON).click();
+        return new ProductsPage(driver);
     }
 
     @Step("Получение текста ошибки авторизации в системе")

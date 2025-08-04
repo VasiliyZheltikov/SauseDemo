@@ -22,8 +22,8 @@ public class LoginTest extends BaseTest {
     @TmsLink("ITM-4")
     @Description("Проверка успешной авторизации в системе")
     public void checkLogin() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.open()
+                .login("standard_user", "secret_sauce");
         assertTrue(productsPage.isPageOpened(),
                 "Ошибка авторизации");
     }
@@ -55,8 +55,8 @@ public class LoginTest extends BaseTest {
     @Issue("ITM-4-1-6")
     @Description("Проверка открытия пользователем карточки товара")
     public void checkLoginWithNegativeValues(String user, String password, String expectedMessage) {
-        loginPage.open();
-        loginPage.login(user, password);
+        loginPage.open()
+                 .login(user, password);
         assertEquals(loginPage.getErrorMessage(),
                 expectedMessage,
                 "Сообщение не соответствует");

@@ -27,8 +27,10 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Открытие страницы с товарами")
-    public void open() {
+    @Override
+    public ProductsPage open() {
         driver.get(BASE_URL + "inventory.html");
+        return this;
     }
 
     @Step("Нахождение наименования товара на странице товаров")
@@ -42,13 +44,15 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Добавление товара в корзину")
-    public void addItemToCart() {
+    public ProductsPage addItemToCart() {
         driver.findElement(itemAddingToCartIcon).click();
+        return this;
     }
 
     @Step("Переход в корзину")
-    public void moveToCart() {
+    public CartPage moveToCart() {
         driver.findElement(CART).click();
+        return new CartPage(driver);
     }
 
     @Step("Проверка открытия страницы с товарами")
@@ -68,9 +72,10 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Выбор значения сортировщика цен - по возрастанию")
-    public void sortItemsByPriceFromLowToHigh() {
+    public ProductsPage sortItemsByPriceFromLowToHigh() {
         driver.findElement(SORTER).click();
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
+        return this;
     }
 
     @Step("Сортировка найденных цен товаров по возрастанию")

@@ -17,8 +17,10 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
+    @Override
+    public CartPage open() {
         driver.get(BASE_URL + "cart.html");
+        return this;
     }
 
     public boolean ItemIsDisplaying() {
@@ -40,12 +42,14 @@ public class CartPage extends BasePage {
     }
 
     @Step("Удаление товара из корзины")
-    public void removeItemFromCart() {
+    public CartPage removeItemFromCart() {
         driver.findElement(REMOVE_BUTTON).click();
+        return this;
     }
 
     @Step("Нажатие кнопки Checkout в корзине")
-    public void checkout() {
+    public CheckoutYourInformationPage checkout() {
         driver.findElement(CHECKOUT_BUTTON).click();
+        return new CheckoutYourInformationPage(driver);
     }
 }

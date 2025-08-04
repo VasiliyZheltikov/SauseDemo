@@ -29,8 +29,8 @@ public class SorterTest extends BaseTest {
     @TmsLink("ITM-4")
     @Description("Проверка отображения товаров при сортировке цены по возрастанию")
     public void sortPriceLowToHigh(String username, String password) {
-        loginPage.open(); // открыт сайт
-        loginPage.login(username, password); // логин с переходом в Page Products
+        loginPage.open() // открыт сайт
+                 .login(username, password); // логин с переходом в Page Products
         Collection<Double> sortedItemsPrices = productsPage.getSortedItemsPricesLowToHigh(); // метод сортировки цен
         productsPage.sortItemsByPriceFromLowToHigh(); // сортировка цен на сайте
         Assert.assertEquals(productsPage.getItemsPrices(),

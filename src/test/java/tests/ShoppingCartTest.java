@@ -26,9 +26,9 @@ public class ShoppingCartTest extends BaseTest {
     @TmsLink("ITM-4")
     @Description("Проверка добавления товара в корзину")
     public void checkItemNameAndPrice(String username, String password) {
-        loginPage.open();
-        loginPage.login(username, password);
-        productsPage.addItemToCart();
+        loginPage.open()
+                 .login(username, password)
+                 .addItemToCart();
         String itemName = productsPage.getItemNameOnProductsPage();
         String itemPrice = productsPage.getItemPrice();
         productsPage.moveToCart();

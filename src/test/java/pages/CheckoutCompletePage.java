@@ -13,8 +13,10 @@ public class CheckoutCompletePage extends BasePage {
     }
 
     @Step("Открытие страницы оформления заказа")
-    public void open() {
+    @Override
+    public CheckoutCompletePage open() {
         driver.get(BASE_URL + "checkout-complete.html");
+        return this;
     }
 
     @Step("Нахождение текста уведомления об успешном оформлении заказа")

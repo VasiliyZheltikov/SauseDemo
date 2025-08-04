@@ -29,13 +29,13 @@ public class FinishOrderTest extends BaseTest {
     @Description("Проверка успешного оформления заказа")
     public void finishOrderTest(String username, String password,
                                 String firstName, String lastName, String postalCode) {
-        loginPage.open();
-        loginPage.login(username, password);
-        productsPage.addItemToCart();
-        productsPage.moveToCart();
-        cartPage.checkout();
-        checkoutYourInformationPage.login(firstName, lastName, postalCode);
-        checkoutOverviewPage.finish();
+        loginPage.open()
+                 .login(username, password)
+                 .addItemToCart()
+                 .moveToCart()
+                 .checkout()
+                 .login(firstName, lastName, postalCode)
+                 .finish();
         Assert.assertEquals(checkoutCompletePage.getNotice(),
                 "Thank you for your order!",
                 "Текст уведомления отличается");

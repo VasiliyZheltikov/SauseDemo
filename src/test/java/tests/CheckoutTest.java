@@ -28,14 +28,14 @@ public class CheckoutTest extends BaseTest {
     @Description("Проверка добавленных в заказ товаров и их цен")
     public void checkoutTest(String username, String password,
                              String firstName, String lastName, String postalCode) {
-        loginPage.open();
-        loginPage.login(username, password);
-        productsPage.addItemToCart();
-        productsPage.moveToCart();
+        loginPage.open()
+                        .login(username, password)
+                        .addItemToCart()
+                        .moveToCart();
         String itemName = cartPage.getItemName();
         String itemPrice = cartPage.getItemPrice();
-        cartPage.checkout();
-        checkoutYourInformationPage.login(firstName, lastName, postalCode);
+        cartPage.checkout()
+                .login(firstName, lastName, postalCode);
         softAssert.assertEquals(checkoutOverviewPage.getItemName(),
                 itemName,
                 "Неверное название товара");
