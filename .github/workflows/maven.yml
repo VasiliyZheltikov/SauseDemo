@@ -17,10 +17,16 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
+#    - name: Setup browser // установка доп. браузера Edge
+#      uses: abhi1693/setup-browser@v0.3.4
+#      with:
+#        browser: edge
+#        version: latest
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
