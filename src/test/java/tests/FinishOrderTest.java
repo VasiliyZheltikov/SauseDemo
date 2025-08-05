@@ -28,7 +28,7 @@ public class FinishOrderTest extends BaseTest {
     @Issue("ITM-4-3")
     @Description("Проверка успешного оформления заказа")
     public void finishOrderTest(String username, String password,
-                                String firstName, String lastName, String postalCode) {
+                                String firstName, String lastName, String postalCode) { // Chain of invocations
         loginPage.open()
                  .login(username, password)
                  .addItemToCart()

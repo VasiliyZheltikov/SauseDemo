@@ -17,13 +17,13 @@ public class LoginPage extends BasePage {
 
     @Step("Открытие сайта SauseDemo")
     @Override
-    public LoginPage open() {
+    public LoginPage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL);
         return this;
     }
 
     @Step("Вход в систему с именем пользователя {user} и паролем {password}")
-    public ProductsPage login(String user, String password) {
+    public ProductsPage login(String user, String password) { // Chain of invocations
         driver.findElement(LOGIN_FIELD).sendKeys(user); // заполнение Username
         driver.findElement(PASSWORD_FIELD).sendKeys(password); // заполнение Password
 //        clickJS(driver.findElement(LOGIN_BUTTON));

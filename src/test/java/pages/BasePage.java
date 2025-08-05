@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public abstract class BasePage {
+public abstract class BasePage { // абстрактный класс
 
     final String BASE_URL = "https://www.saucedemo.com/";
 
@@ -16,7 +16,7 @@ public abstract class BasePage {
         this.js = (JavascriptExecutor) driver;
     }
 
-    public abstract BasePage open();
+    public abstract BasePage open(); // Loadable Page
 
     public void clickJS(WebElement element) {
         js.executeScript("arguments[0].click;", element);

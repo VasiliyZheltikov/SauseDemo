@@ -14,7 +14,7 @@ public class CheckoutCompletePage extends BasePage {
 
     @Step("Открытие страницы оформления заказа")
     @Override
-    public CheckoutCompletePage open() {
+    public CheckoutCompletePage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL + "checkout-complete.html");
         return this;
     }

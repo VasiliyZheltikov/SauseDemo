@@ -26,7 +26,7 @@ public class OpenItemCardTest extends BaseTest {
     @TmsLink("ITM-4")
     @Issue("ITM-4-1")
     @Description("Проверка открытия пользователем карточки товара")
-    public void openItemCardTest(String username, String password) {
+    public void openItemCardTest(String username, String password) { // Chain of invocations
         loginPage.open()
                  .login(username, password);
         String productNameOnProductPage = productsPage.getItemNameOnProductsPage();

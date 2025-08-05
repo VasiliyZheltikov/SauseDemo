@@ -27,7 +27,7 @@ public class RemoveItemFromCartTest extends BaseTest {
     @TmsLink("ITM-4")
     @Issue("ITM-4-1-8")
     @Description("Проверка удаления товара из корзины")
-    public void removeItemFromCartTest(String username, String password) {
+    public void removeItemFromCartTest(String username, String password) { // Chain of invocations
         loginPage.open()
                  .login(username, password)
                  .addItemToCart()

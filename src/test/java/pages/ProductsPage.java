@@ -28,7 +28,7 @@ public class ProductsPage extends BasePage {
 
     @Step("Открытие страницы с товарами")
     @Override
-    public ProductsPage open() {
+    public ProductsPage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL + "inventory.html");
         return this;
     }
@@ -44,13 +44,13 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Добавление товара в корзину")
-    public ProductsPage addItemToCart() {
+    public ProductsPage addItemToCart() { // Chain of invocations
         driver.findElement(itemAddingToCartIcon).click();
         return this;
     }
 
     @Step("Переход в корзину")
-    public CartPage moveToCart() {
+    public CartPage moveToCart() { // Chain of invocations
         driver.findElement(CART).click();
         return new CartPage(driver);
     }
@@ -72,7 +72,7 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Выбор значения сортировщика цен - по возрастанию")
-    public ProductsPage sortItemsByPriceFromLowToHigh() {
+    public ProductsPage sortItemsByPriceFromLowToHigh() { // Chain of invocations
         driver.findElement(SORTER).click();
         driver.findElement(SORTER_VALUE_PRICE_LOW_TO_HIGH).click();
         return this;
