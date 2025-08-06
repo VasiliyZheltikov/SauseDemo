@@ -5,7 +5,6 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 @Log4j2
 public class CartPage extends BasePage {
@@ -31,8 +30,6 @@ public class CartPage extends BasePage {
         try {
             return driver.findElement(ITEM).isDisplayed();
         } catch (NoSuchElementException e) {
-            log.error(e.getMessage());
-            Assert.fail("Item is not displaying");
             return false;
         }
     }
