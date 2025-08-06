@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SauceDemo All Tests">
     <listeners>
-        <listener class-name="utils.TestListener"/>
-        <listener class-name="utils.AnnotationTransformer"/>
+        <listener class-name="listeners.TestListener"/>
+        <listener class-name="listeners.AnnotationTransformer"/>
     </listeners>
     <test name="All Tests">
         <classes>

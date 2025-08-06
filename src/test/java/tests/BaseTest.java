@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 import utils.PropertyReader;
-import utils.TestListener;
+import listeners.TestListener;
 
 import java.time.Duration;
 import java.util.HashMap;
