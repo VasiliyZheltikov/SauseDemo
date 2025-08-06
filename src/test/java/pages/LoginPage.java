@@ -28,10 +28,10 @@ public class LoginPage extends BasePage {
     @Step("Вход в систему с именем пользователя {user} и паролем {password}")
     public ProductsPage login(String user, String password) { // Chain of invocations
         log.info("Log in LoginPage");
-        log.info("Filling Login field...");
+        log.info("Filling Login field: {}", user);
         driver.findElement(LOGIN_FIELD).sendKeys(user); // заполнение Username
         log.info("Login field has been successfully filled");
-        log.info("Filling Password field...");
+        log.info("Filling Password field {}", password);
         driver.findElement(PASSWORD_FIELD).sendKeys(password); // заполнение Password
         log.info("Password field has been successfully filled");
         log.info("Clicking on the Login button...");

@@ -31,13 +31,13 @@ public class CheckoutYourInformationPage extends BasePage {
             "Postal Code = {postalCode}")
     public CheckoutOverviewPage login(String firstName, String lastName, String postalCode) { // Chain of invocations
         log.info("Log in CheckoutOverviewPage");
-        log.info("Filling first name field...");
+        log.info("Filling first name field: {}", firstName);
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);
         log.info("First name has been successfully filled");
-        log.info("Filling last name field...");
+        log.info("Filling last name field: {}", lastName);
         driver.findElement(LAST_NAME_FIELD).sendKeys(lastName);
         log.info("Last name has been successfully filled");
-        log.info("Filling postal code field...");
+        log.info("Filling postal code field: {}", postalCode);
         driver.findElement(POSTAL_CODE_FIELD).sendKeys(postalCode);
         log.info("Postal code has been successfully filled");
         log.info("Clicking at the Continue button...");
