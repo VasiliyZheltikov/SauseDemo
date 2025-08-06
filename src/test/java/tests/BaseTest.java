@@ -8,11 +8,13 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pages.*;
+import utils.PropertyReader;
+import utils.TestListener;
 
 import java.time.Duration;
 import java.util.HashMap;
 
-import static tests.AllureUtils.takeScreenshot;
+import static utils.AllureUtils.takeScreenshot;
 
 @Listeners(TestListener.class)
 public class BaseTest {
