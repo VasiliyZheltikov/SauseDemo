@@ -10,7 +10,7 @@ public class FinishOrderTest extends BaseTest {
     @DataProvider(name = "LoginData")
     public Object[][] loginData() {
         return new Object[][] {
-                {"standard_user", "secret_sauce", "Test", "Test", "12345"}
+                {user, password, "Test", "Test", "12345"}
         };
     }
 

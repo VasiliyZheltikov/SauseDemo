@@ -12,7 +12,7 @@ public class SorterTest extends BaseTest {
     @DataProvider(name = "LoginData")
     public Object[][] loginData() {
         return new Object[][] {
-                {"standard_user", "secret_sauce"}
+                {user, password}
         };
     }
 

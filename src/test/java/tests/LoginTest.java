@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
     @Description("Проверка успешной авторизации в системе")
     public void checkLogin() {
         loginPage.open()
-                .login("standard_user", "secret_sauce");
+                .login(user, password);
         assertTrue(productsPage.isPageOpened(),
                 "Ошибка авторизации");
     }
@@ -31,8 +31,8 @@ public class LoginTest extends BaseTest {
     @DataProvider(name = "LoginData")
     public Object[][] loginData() {
         return new Object[][]{
-                {"standard_user", "", "Epic sadface: Password is required"},
-                {"", "secret_sauce", "Epic sadface: Username is required"},
+                {user, "", "Epic sadface: Password is required"},
+                {"", password, "Epic sadface: Username is required"},
                 {"test", "test", "Epic sadface: Username and password do not match any user in this service"}
         };
     }

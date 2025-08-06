@@ -17,8 +17,8 @@ public class LocatorsTest extends BaseTest {
         // By tagname
         driver.findElement(By.tagName("h4"));
         // By linktext
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+        driver.findElement(By.id("user-name")).sendKeys(user);
+        driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("login-button")).click();
         driver.findElement(By.id("react-burger-menu-btn")).click();
         driver.findElement(By.linkText("All Items"));

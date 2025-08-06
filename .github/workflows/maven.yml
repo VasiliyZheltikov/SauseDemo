@@ -8,16 +8,22 @@
 
 name: SauseDemo CI
 
-on:
+on: # секция отвечает за запуск тестов (в каких случаях запускать)
   push:
-    branches: [ "master" ]
+    branches: [ "master" ] # запуск при пуше в ветку
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master" ] # запуск при PR в ветку
+#  schedule: // запуск по расписанию
+#    - cron: '30 22 * * 6' // https://crontab.guru
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+
+    env:
+      USER: ${{secrets.SD_USER}}
+      PASSWORD: ${{secrets.SD_PASSWORD}}
 
     steps:
     - name: Checkout
@@ -34,4 +40,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Run tests
-      run: mvn clean test
+      run: mvn clean test -Duser=$USER -Dpassword=$PASSWORD
