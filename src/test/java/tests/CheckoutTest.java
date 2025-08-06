@@ -27,7 +27,7 @@ public class CheckoutTest extends BaseTest {
     @Issue("ITM-4-2")
     @Description("Проверка добавленных в заказ товаров и их цен")
     public void checkoutTest(String username, String password,
-                             String firstName, String lastName, String postalCode) {
+                             String firstName, String lastName, String postalCode) { // Chain of invocations
         loginPage.open()
                         .login(username, password)
                         .addItemToCart()

@@ -25,7 +25,7 @@ public class ShoppingCartTest extends BaseTest {
     @Story("Adding item to cart")
     @TmsLink("ITM-4")
     @Description("Проверка добавления товара в корзину")
-    public void checkItemNameAndPrice(String username, String password) {
+    public void checkItemNameAndPrice(String username, String password) { // Chain of invocations
         loginPage.open()
                  .login(username, password)
                  .addItemToCart();

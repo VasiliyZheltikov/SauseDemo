@@ -17,7 +17,7 @@ public class CheckoutYourInformationPage extends BasePage {
 
     @Step("Открытие страницы проверки заказа")
     @Override
-    public CheckoutYourInformationPage open() {
+    public CheckoutYourInformationPage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL + "checkout-step-one.html");
         return this;
     }
@@ -26,7 +26,7 @@ public class CheckoutYourInformationPage extends BasePage {
             "First Name = {firstName}, " +
             "Last Name = {lastName}, " +
             "Postal Code = {postalCode}")
-    public CheckoutOverviewPage login(String firstName, String lastName, String postalCode) {
+    public CheckoutOverviewPage login(String firstName, String lastName, String postalCode) { // Chain of invocations
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstName);
         driver.findElement(LAST_NAME_FIELD).sendKeys(lastName);
         driver.findElement(POSTAL_CODE_FIELD).sendKeys(postalCode);

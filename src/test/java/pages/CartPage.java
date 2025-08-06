@@ -18,7 +18,7 @@ public class CartPage extends BasePage {
     }
 
     @Override
-    public CartPage open() {
+    public CartPage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL + "cart.html");
         return this;
     }
@@ -42,13 +42,13 @@ public class CartPage extends BasePage {
     }
 
     @Step("Удаление товара из корзины")
-    public CartPage removeItemFromCart() {
+    public CartPage removeItemFromCart() { // Chain of invocations
         driver.findElement(REMOVE_BUTTON).click();
         return this;
     }
 
     @Step("Нажатие кнопки Checkout в корзине")
-    public CheckoutYourInformationPage checkout() {
+    public CheckoutYourInformationPage checkout() { // Chain of invocations
         driver.findElement(CHECKOUT_BUTTON).click();
         return new CheckoutYourInformationPage(driver);
     }

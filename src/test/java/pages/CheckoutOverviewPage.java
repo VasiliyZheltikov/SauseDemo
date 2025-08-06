@@ -16,7 +16,7 @@ public class CheckoutOverviewPage extends BasePage {
 
     @Step("Открытие окна подтверждения заказа")
     @Override
-    public CheckoutOverviewPage open() {
+    public CheckoutOverviewPage open() { // Loadable Page, Chain of invocations
         driver.get(BASE_URL + "checkout-step-two.html");
         return this;
     }
@@ -32,7 +32,7 @@ public class CheckoutOverviewPage extends BasePage {
     }
 
     @Step("Нажатие кнопки оформления заказа")
-    public CheckoutCompletePage finish() {
+    public CheckoutCompletePage finish() { // Chain of invocations
         driver.findElement(FINISH_BUTTON).click();
         return new CheckoutCompletePage(driver);
     }

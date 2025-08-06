@@ -54,7 +54,7 @@ public class LoginTest extends BaseTest {
     @Issue("ITM-4-1-5")
     @Issue("ITM-4-1-6")
     @Description("Проверка открытия пользователем карточки товара")
-    public void checkLoginWithNegativeValues(String user, String password, String expectedMessage) {
+    public void checkLoginWithNegativeValues(String user, String password, String expectedMessage) { // Chain of invocations
         loginPage.open()
                  .login(user, password);
         assertEquals(loginPage.getErrorMessage(),
